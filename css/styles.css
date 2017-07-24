@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+.dts_grayscale {
+    -webkit-filter: grayscale(100%);
+            filter: grayscale(100%);
+}
+
+.dts_smplshare_container {
+    height: auto;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.dts_smplshare_icon_container {
+    display: inline-block;
+    margin: 0;
+    margin-right: 7px;
+    width: 100px;
+    height: 28px;
+    background-attachment: local;
+    background-position: 0 0;
+    -webkit-transition: all 300ms ease;
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.dts_smplshare_icon_container:hover {
+    background-position: -40px 0;
+}
+
+a.dts_smplshare {
+    text-decoration: none !important;
+    -webkit-transition: all 300ms ease;
+    transition: all 300ms ease;
+}
+
+a.dts_smplshare img {
+    opacity: 0.8;
+    margin-right: 7px;
+}
+
+a.dts_smplshare:hover img {
+    opacity: 1;
+}
+
+@media screen and (max-width: 680px) {
+    .dts_smplshare_icon_container {
+        width: 40px;
+        height: 28px;
+        margin-right: 10px;
+    }
+
+    .dts_smplshare_icon_container:hover {
+        background-position: 0 0;
+    }
+}
