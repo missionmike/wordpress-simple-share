@@ -10,7 +10,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Simplify page/post sharing with an easily added sharebar for users.
 
 == Description ==
-### About DT's Simple Share
+
+**This is a new project**, please kindly report any issues or conflicts to the author.
 
 This plugin was created to be able to quickly add a sharebar for social media sharing, with minimal options and no 3rd-party resources (helps limit http requests and resource usage)
 
@@ -18,11 +19,28 @@ DT's Simple Share does **not** allow you to change any meta titles, keywords, op
 
 In Settings, sharing platforms/icons can be shown or hidden, and default values can be set for share meta (Twitter "via", hashtags, etc).
 
-### Notes
+## Notes
 
-SEO post title support for [Yoast SEO](https://wordpress.org/plugins/wordpress-seo/) and [All-in-one SEO Pack](https://wordpress.org/plugins/all-in-one-seo-pack/) is built in. If no SEO title is detected for the post, the WordPress post title is used.
+SEO post title support for [Yoast SEO](https://wordpress.org/plugins/wordpress-seo/) and [All-in-one SEO Pack](https://wordpress.org/plugins/all-in-one-seo-pack/) is built in. If no SEO title is detected for the post, the WordPress post title is used. Please note there is not yet support for using Yoast, AIOSEO, or other plugins' custom social media post titles.
 
 Other SEO plugin support for post titles can be added upon request.
+
+## In the Works
+
+Currently, being the initial release, there is only one share bar style and four supported options: Facebook, Twitter, Google+, and email.
+
+More sharebar styles including custom image/CSS options are in the works.
+
+The following platforms are planned to be included:
+
+* Pinterest
+* LinkedIn
+* StumbleUpon
+* Tumblr
+* Reddit
+* Delicious
+
+...and more if requested.
 
 
 == Installation ==
