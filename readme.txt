@@ -52,6 +52,10 @@ N/A
 
 == Changelog ==
 
+=v0.0.2=
+
+* CSS fixes (added margin to top/bottom of sharebar, fixed centering)
+
 =v0.0.1=
 
 * Added settings and icons for Facebook, Twitter, Google+ and Email
