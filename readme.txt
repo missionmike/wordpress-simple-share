@@ -21,20 +21,19 @@ In Settings, sharing platforms/icons can be shown or hidden, and default values 
 
 ## Notes
 
-SEO post title support for [Yoast SEO](https://wordpress.org/plugins/wordpress-seo/) and [All-in-one SEO Pack](https://wordpress.org/plugins/all-in-one-seo-pack/) is built in. If no SEO title is detected for the post, the WordPress post title is used. Please note there is not yet support for using Yoast, AIOSEO, or other plugins' custom social media post titles.
+SEO post title support for [Yoast SEO](https://wordpress.org/plugins/wordpress-seo/) and [All-in-one SEO Pack](https://wordpress.org/plugins/all-in-one-seo-pack/) is built in. If no SEO title is detected for the post, the WordPress post title is used. Please note there is not yet support for using Yoast, All-in-one SEO, or other plugins' custom social media post titles.
 
 Other SEO plugin support for post titles can be added upon request.
 
 ## In the Works
 
-Currently, being the initial release, there is only one share bar style and four supported options: Facebook, Twitter, Google+, and email.
+Currently, there are five supported options: Facebook, Twitter, Google+, LinkedIn, and email.
 
-More sharebar styles including custom image/CSS options are in the works.
+More sharebar styles are in the works.
 
 The following platforms are planned to be included:
 
 * Pinterest
-* LinkedIn
 * StumbleUpon
 * Tumblr
 * Reddit
@@ -51,6 +50,11 @@ Check settings to reveal post types and sharebar positioning (all disabled by de
 N/A
 
 == Changelog ==
+
+=v0.1=
+
+* Added support for LinkedIn
+* Added two display options "standard" and "compact" for sharebar
 
 =v0.0.2=
 

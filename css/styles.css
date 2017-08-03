@@ -28,8 +28,23 @@
     cursor: pointer;
 }
 
-.dts_smplshare_icon_container:hover {
+.dts_sharebar_style_v1 .dts_smplshare_icon_container {
+    width: 100px;
+}
+
+.dts_sharebar_style_v1 .dts_smplshare_icon_container:hover {
     background-position: -40px 0;
+}
+
+.dts_sharebar_style_v2 .dts_smplshare_icon_container {
+    width: 40px;
+    -webkit-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+
+.dts_sharebar_style_v2 .dts_smplshare_icon_container:hover {
+    background-position: 0 0;
+    width: 100px;
 }
 
 a.dts_smplshare {
@@ -55,13 +70,15 @@ a.dts_smplshare:hover img {
         margin: 35px 0;
     }
 
-    .dts_smplshare_icon_container {
+    .dts_sharebar_style_v1 .dts_smplshare_icon_container,
+    .dts_sharebar_style_v2 .dts_smplshare_icon_container {
         width: 40px;
         height: 28px;
         margin-right: 10px;
     }
 
-    .dts_smplshare_icon_container:hover {
+    .dts_sharebar_style_v1 .dts_smplshare_icon_container:hover,
+    .dts_sharebar_style_v2 .dts_smplshare_icon_container:hover {
         background-position: 0 0;
     }
 }
