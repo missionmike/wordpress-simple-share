@@ -3,7 +3,7 @@
    Plugin Name: DT's Simple Share
    Plugin URI: https://dtweb.design/simple-share/
    Description: Simple social media/email sharebar. Add shortcode [dts_sharebar] wherever you want them to show up!
-   Version: 0.1
+   Version: 0.1.1
    Author: Michael R. Dinerstein
    Author URI: https://dtweb.design/
    License: GPL2
@@ -136,7 +136,7 @@ function dts_smplshare_init() {
      * Section: Share bar placement
      */
     function dts_smplshare_settings_placement_text() {
-        echo '<p>Select placement for sharebar on posts/pages (if all unchecked, the shortcode [dts_sharebar] will still work manually)</p>';
+        echo '<p>Select placement for sharebar on posts/pages (the shortcode [dts_sharebar] will still work manually regardless)</p>';
     }
     add_settings_section( 'dts_smplshare_settings_placement', __( 'Sharebar Placement', 'dts-simple-share' ), 'dts_smplshare_settings_placement_text', 'dts_smplshare_settings' );
 
@@ -165,7 +165,7 @@ function dts_smplshare_init() {
      * Section: Share Icons Available
      */
     function dts_smplshare_settings_show_option() {
-        echo '<p>If you <strong>don\'t</strong> wish to show a particular share icon, <strong>uncheck</strong> it here.</p>';
+        echo '<p>If you wish to show a particular share icon, check it here.</p>';
     }
     add_settings_section( 'dts_smplshare_settings_smpl_sharers', __( 'Available Platforms (icons)', 'dts-simple-share' ), 'dts_smplshare_settings_show_option', 'dts_smplshare_settings' );
 
@@ -339,7 +339,7 @@ function dts_smplshare_shortcodes_init() {
 	        if ( !empty( $options ) && $options[$setting_option] !== '1' )
 	                continue;
 
-	        $sharebar .= '<a class="dts_smplshare" href="' . $smpl_sharer['url'] . '" target="_blank" title="' . $smpl_sharer['action'] . '">';
+	        $sharebar .= '<a class="dts_smplshare dts_smplshare_sharelink" href="' . $smpl_sharer['url'] . '" target="_blank" title="' . $smpl_sharer['action'] . '" data-name="' . $smpl_sharer['name'] . '">';
 	        $sharebar .=    '<span class="dts_smplshare_icon_container" style="background-image: url(' . plugins_url( 'images/' . $smpl_sharer['icon'], __FILE__ ) . '" title="' . $smpl_sharer['action'] . '"></span>';
 	        $sharebar .= '</a>';
 	    endforeach;

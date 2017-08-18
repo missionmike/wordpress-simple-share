@@ -51,6 +51,10 @@ N/A
 
 == Changelog ==
 
+=v0.1.1=
+
+* Changed sharer's new tab opening on laptop/desktop to show a new appropriately-sized popup instead
+
 =v0.1=
 
 * Added support for LinkedIn
