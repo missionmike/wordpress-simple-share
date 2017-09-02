@@ -340,7 +340,7 @@ function dts_smplshare_shortcodes_init() {
 	                continue;
 
 	        $sharebar .= '<a class="dts_smplshare dts_smplshare_sharelink" href="' . $smpl_sharer['url'] . '" target="_blank" title="' . $smpl_sharer['action'] . '" data-name="' . $smpl_sharer['name'] . '">';
-	        $sharebar .=    '<span class="dts_smplshare_icon_container" style="background-image: url(' . plugins_url( 'images/' . $smpl_sharer['icon'], __FILE__ ) . '" title="' . $smpl_sharer['action'] . '"></span>';
+	        $sharebar .=    '<span class="dts_smplshare_icon_container ' . $smpl_sharer['name'] . '" style="background-image: url(' . plugins_url( 'images/' . $smpl_sharer['icon'], __FILE__ ) . ');" title="' . $smpl_sharer['action'] . '"></span>';
 	        $sharebar .= '</a>';
 	    endforeach;
 
@@ -379,7 +379,7 @@ function dts_smplshare_shortcode_sharebar_preview( $atts, $content = '' ) {
             continue;
 
         $sharebar .= '<a class="dts_smplshare" data-name="' . $smpl_sharer['name'] . '" href="#" title="' . $smpl_sharer['action'] . '">';
-        $sharebar .=    '<span class="dts_smplshare_icon_container" style="background-image: url(' . plugins_url( 'images/' . $smpl_sharer['icon'], __FILE__ ) . '" title="' . $smpl_sharer['action'] . '"></span>';
+        $sharebar .=    '<span class="dts_smplshare_icon_container" style="background-image: url(' . plugins_url( 'images/' . $smpl_sharer['icon'], __FILE__ ) . ');" title="' . $smpl_sharer['action'] . '"></span>';
         $sharebar .= '</a>';
     endforeach;
 
