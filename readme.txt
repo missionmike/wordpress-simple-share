@@ -51,6 +51,10 @@ N/A
 
 == Changelog ==
 
+=v0.1.3=
+
+* Updated Google Plus logo
+
 =v0.1.2=
 
 * Fixed missing ');' to inline background-image CSS rule

@@ -3,7 +3,7 @@
    Plugin Name: DT's Simple Share
    Plugin URI: https://dtweb.design/simple-share/
    Description: Simple social media/email sharebar. Add shortcode [dts_sharebar] wherever you want them to show up!
-   Version: 0.1.2
+   Version: 0.1.3
    Author: Michael R. Dinerstein
    Author URI: https://dtweb.design/
    License: GPL2
@@ -17,7 +17,7 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
  * Register and enqueue styles/scripts for admin
  */
 function dts_smplshare_register_admin_scripts() {
-    $version = '08182017';
+    $version = '09142017';
 
     wp_register_style( 'dts_ss_styles', plugins_url( 'css/styles.css', __FILE__ ), false, $version );
     wp_register_style( 'dts_ss_styles_admin', plugins_url( 'css/styles-admin.css', __FILE__ ), false, $version );
@@ -39,7 +39,7 @@ add_action( 'admin_enqueue_scripts', 'dts_smplshare_enqueue_admin_scripts' );
  * Register and enqueue styles/scripts for front-end
  */
 function dts_smplshare_register_scripts() {
-    $version = '08182017';
+    $version = '09142017';
 
     wp_register_style( 'dts_ss_styles', plugins_url( 'css/styles.css', __FILE__ ), false, $version );
     wp_register_script( 'dts_ss_scripts', plugins_url( 'js/scripts.js', __FILE__ ), false, $version );
