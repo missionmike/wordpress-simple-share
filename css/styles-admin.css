@@ -7,13 +7,13 @@
     background-color: white;
 }
 
-.settings_page_dts-simple-share h2 + p {
+.settings_page_dts-simple-share h2+p {
     margin-top: 0;
     background-color: white;
     padding: 0 10px 10px 10px;
 }
 
-.settings_page_dts-simple-share .wrap > h2:first-child {
+.settings_page_dts-simple-share .wrap>h2:first-child {
     padding-left: 10px;
     padding-bottom: 12px;
 }
@@ -27,4 +27,24 @@
     margin-top: -2px;
     min-width: 300px;
     width: 100%;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+#dts-sortable li {
+    display: inline-block;
+}
+
+#admin_sharebar_example {
+    margin-top: 20px;
+}
+
+.dts-alert.success {
+    color: green;
+}
+
+.dts-alert.error {
+    color: red;
 }

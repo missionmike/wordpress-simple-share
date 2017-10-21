@@ -1,6 +1,6 @@
 === DT's Simple Share ===
 Contributors: MissionMike
-Tags: facebook, google, twitter, email, share, sharing, social media
+Tags: facebook, google plus, twitter, email, share, linkedin, reddit, tumblr, stumbleupon, sharing, social media
 Donate link: https://dtweb.design/simple-share/
 Requires at least: 2.8
 Tested up to: 4.8
@@ -11,9 +11,9 @@ Simplify page/post sharing with an easily added sharebar for users.
 
 == Description ==
 
-**This is a new project**, please kindly report any issues or conflicts to the author.
+Please kindly report any issues or conflicts to the author, or open a new thread.
 
-This plugin was created to be able to quickly add a sharebar for social media sharing, with minimal options and no 3rd-party resources (helps limit http requests and resource usage)
+This plugin was created to be able to quickly add a sharebar for social media sharing, with minimal options and no 3rd-party resources (helps limit http requests and resource usage).
 
 DT's Simple Share does **not** allow you to change any meta titles, keywords, open graph data, etc. It only provides a generally-configurable sharebar of social media platforms for users to quickly share URLs from blog posts or pages.
 
@@ -27,16 +27,20 @@ Other SEO plugin support for post titles can be added upon request.
 
 ## In the Works
 
-Currently, there are five supported options: Facebook, Twitter, Google+, LinkedIn, and email.
+Currently, the following platforms and share options are supported:
 
-More sharebar styles are in the works.
+* Facebook
+* Twitter
+* Google+
+* LinkedIn
+* Reddit
+* Tumblr
+* StumbleUpon
+* Email.
 
 The following platforms are planned to be included:
 
 * Pinterest
-* StumbleUpon
-* Tumblr
-* Reddit
 * Delicious
 
 ...and more if requested.
@@ -50,6 +54,14 @@ Check settings to reveal post types and sharebar positioning (all disabled by de
 N/A
 
 == Changelog ==
+
+=v0.2=
+
+* Added Tumblr, StumbleUpon, and Reddit
+* New feature: Drag and drop order of icons
+* Updated styles: Rectangle and Round
+* Removed inline style declarations
+* Bugfixes and code cleanup
 
 =v0.1.3=
 

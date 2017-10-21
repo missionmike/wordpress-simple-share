@@ -42,6 +42,10 @@ if (typeof jQuery !== "undefined") {
                             w = 1024;
                             h = 640;
                             break;
+                        case "reddit":
+                            w = 1024;
+                            h = 640;
+                            break;
                     }
 
                     popupCenter(url, title, w, h);
