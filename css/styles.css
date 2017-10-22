@@ -103,7 +103,7 @@ a.dts_smplshare.dts_smplshare_sharelink {
 }
 
 .dts_smplshare_icon_container.facebook::before {
-    background-image: url('../images/facebook.png');
+    background-image: url('../images/facebook.png?v=2');
 }
 
 .dts_smplshare_icon_container.googleplus {
@@ -115,7 +115,7 @@ a.dts_smplshare.dts_smplshare_sharelink {
 }
 
 .dts_smplshare_icon_container.googleplus::before {
-    background-image: url('../images/googleplus.png');
+    background-image: url('../images/googleplus.png?v=2');
 }
 
 .dts_smplshare_icon_container.twitter {
@@ -127,7 +127,7 @@ a.dts_smplshare.dts_smplshare_sharelink {
 }
 
 .dts_smplshare_icon_container.twitter::before {
-    background-image: url('../images/twitter.png');
+    background-image: url('../images/twitter.png?v=2');
 }
 
 .dts_smplshare_icon_container.linkedin {
@@ -139,7 +139,7 @@ a.dts_smplshare.dts_smplshare_sharelink {
 }
 
 .dts_smplshare_icon_container.linkedin::before {
-    background-image: url('../images/linkedin.png');
+    background-image: url('../images/linkedin.png?v=2');
 }
 
 .dts_smplshare_icon_container.tumblr {
@@ -151,7 +151,7 @@ a.dts_smplshare.dts_smplshare_sharelink {
 }
 
 .dts_smplshare_icon_container.tumblr::before {
-    background-image: url('../images/tumblr.png');
+    background-image: url('../images/tumblr.png?v=2');
 }
 
 .dts_smplshare_icon_container.stumbleupon {
@@ -163,7 +163,7 @@ a.dts_smplshare.dts_smplshare_sharelink {
 }
 
 .dts_smplshare_icon_container.stumbleupon::before {
-    background-image: url('../images/stumbleupon.png');
+    background-image: url('../images/stumbleupon.png?v=2');
 }
 
 .dts_smplshare_icon_container.reddit {
@@ -175,7 +175,7 @@ a.dts_smplshare.dts_smplshare_sharelink {
 }
 
 .dts_smplshare_icon_container.reddit::before {
-    background-image: url('../images/reddit.png');
+    background-image: url('../images/reddit.png?v=2');
 }
 
 .dts_smplshare_icon_container.email {
@@ -187,7 +187,7 @@ a.dts_smplshare.dts_smplshare_sharelink {
 }
 
 .dts_smplshare_icon_container.email::before {
-    background-image: url('../images/email.png');
+    background-image: url('../images/email.png?v=2');
 }
 
 a.dts_smplshare {
