@@ -55,6 +55,10 @@ N/A
 
 == Changelog ==
 
+=v0.2.1=
+
+* Forced cache refresh with updated query parameter for CSS changes
+
 =v0.2=
 
 * Added Tumblr, StumbleUpon, and Reddit
