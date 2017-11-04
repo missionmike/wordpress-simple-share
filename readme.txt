@@ -55,6 +55,11 @@ N/A
 
 == Changelog ==
 
+=v0.3=
+
+* Replaced images with [FontAwesome](http://fontawesome.io) icons
+* CSS fixes
+
 =v0.2.2=
 
 * Fixed "undefined index" PHP warning

@@ -35,6 +35,8 @@
 
 #dts-sortable li {
     display: inline-block;
+    -webkit-transition: all 300ms ease;
+    transition: all 300ms ease;
 }
 
 #admin_sharebar_example {
