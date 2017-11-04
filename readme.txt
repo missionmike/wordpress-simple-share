@@ -25,8 +25,6 @@ SEO post title support for [Yoast SEO](https://wordpress.org/plugins/wordpress-s
 
 Other SEO plugin support for post titles can be added upon request.
 
-## In the Works
-
 Currently, the following platforms and share options are supported:
 
 * Facebook
@@ -37,6 +35,8 @@ Currently, the following platforms and share options are supported:
 * Tumblr
 * StumbleUpon
 * Email.
+
+## In the Works
 
 The following platforms are planned to be included:
 
@@ -54,6 +54,10 @@ Check settings to reveal post types and sharebar positioning (all disabled by de
 N/A
 
 == Changelog ==
+
+=v0.2.2=
+
+* Fixed "undefined index" PHP warning
 
 =v0.2.1=
 
