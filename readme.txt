@@ -55,6 +55,10 @@ N/A
 
 == Changelog ==
 
+=v0.3.1=
+
+* Fixed missing text on hover in Rectangle style
+
 =v0.3=
 
 * Replaced images with [FontAwesome](http://fontawesome.io) icons

@@ -72,7 +72,7 @@ div.dts_smplshare_container span.dts_smplshare_icon_desc_container {
     z-index: 0;
 }
 
-.dts_sharebar_style_v1 .dts_smplshare:hover div.dts_smplshare_container span.dts_smplshare_icon_desc_container {
+.dts_sharebar_style_v1 .dts_smplshare:hover span.dts_smplshare_icon_desc_container {
     -webkit-transform: translateY(16px);
     transform: translateY(16px);
     opacity: 1;
