@@ -50,3 +50,42 @@
 .dts-alert.error {
     color: red;
 }
+
+.settings_page_dts-simple-share .dts-clear {
+    margin-top: 50px;
+    clear: both;
+}
+
+.settings_page_dts-simple-share .dts-column-container {
+    display: table;
+}
+
+.settings_page_dts-simple-share .dts-column-33 {
+    display: table-cell;
+    box-sizing: border-box;
+    width: 30%;
+    padding: 20px;
+    margin: 5px;
+    border: 1px solid #ddd;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    background-color: #eee;
+    padding-bottom: 40px;
+}
+
+.settings_page_dts-simple-share p.submit {
+    text-align: center;
+}
+
+.settings_page_dts-simple-share p.submit #submit {
+    padding: 15px 75px;
+    vertical-align: middle;
+    height: auto;
+    font-size: 1.2em;
+}
+
+@media screen and (max-width: 1280px) {
+    .settings_page_dts-simple-share .dts-column-33 {
+        display: block;
+        width: 100%;
+    }
+}

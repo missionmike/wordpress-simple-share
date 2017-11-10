@@ -3,7 +3,7 @@
    Plugin Name: DT's Simple Share
    Plugin URI: https://dtweb.design/simple-share/
    Description: Simple social media/email sharebar. Specify platforms and location, or use shortcode [dts_sharebar] wherever you want them to show up!
-   Version: 0.3.1
+   Version: 0.3.2
    Author: Michael R. Dinerstein
    Author URI: https://dtweb.design/
    License: GPL2
@@ -17,7 +17,7 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
  * Register and enqueue styles/scripts for admin
  */
 function dts_smplshare_register_admin_scripts() {
-    $version = '20171106';
+    $version = '20171110';
 
     wp_register_style( 'font-awesome', plugins_url( 'css/font-awesome.min.css', __FILE__ ), false, $version );
     wp_register_style( 'dts_ss_styles', plugins_url( 'css/styles.css', __FILE__ ), false, $version );
@@ -42,7 +42,7 @@ add_action( 'admin_enqueue_scripts', 'dts_smplshare_enqueue_admin_scripts' );
  * Register and enqueue styles/scripts for front-end
  */
 function dts_smplshare_register_scripts() {
-    $version = '20171106';
+    $version = '20171110';
 
     wp_register_style( 'font-awesome', plugins_url( 'css/font-awesome.min.css', __FILE__ ), false, $version );
     wp_register_style( 'dts_ss_styles', plugins_url( 'css/styles.css', __FILE__ ), false, $version );
@@ -110,11 +110,17 @@ register_deactivation_hook( __FILE__, 'dts_smplshare_remove' );
 function dts_smplshare_init() {
 
     load_plugin_textdomain('dts-simple-share', false, basename( dirname( __FILE__ ) ) . '/languages' );
-    register_setting( 'dts_smplshare_settings', 'dts_smplshare_settings', 'dts_smplshare_settings_validate' );
 
+    register_setting( 'dts_smplshare_settings', 'dts_smplshare_settings' );
+    register_setting( 'dts_smplshare_settings', 'dts_smplshare_settings_sharebar_style' );
+    register_setting( 'dts_smplshare_settings', 'dts_smplshare_settings_placement' );
+    register_setting( 'dts_smplshare_settings', 'dts_smplshare_settings_smpl_sharers' );
+    register_setting( 'dts_smplshare_settings', 'dts_smplshare_settings_default_values' );
+    register_setting( 'dts_smplshare_settings', 'dts_smplshare_settings_post_types' );
 
     /**
      * Section: Share bar style
+     * dts_smplshare_settings_sharebar_style
      */
     function dts_smplshare_settings_sharebar_style_text() {
     	echo '<p>Select preferred sharebar style (hover mouse to check hover effect).</p>';
@@ -125,7 +131,7 @@ function dts_smplshare_init() {
 
     	echo dts_smplshare_shortcode_sharebar_preview( $atts );
     }
-    add_settings_section( 'dts_smplshare_settings_sharebar_style', __( 'Sharebar Style', 'dts-simple-share' ), 'dts_smplshare_settings_sharebar_style_text', 'dts_smplshare_settings' );
+    add_settings_section( 'dts_smplshare_settings_sharebar_style', __( 'Sharebar Style', 'dts-simple-share' ), 'dts_smplshare_settings_sharebar_style_text', 'dts_smplshare_settings_sharebar_style' );
 
     $dts_smplshare_settings_style_select = function() {
     	$options = get_option( 'dts_smplshare_settings' );
@@ -136,16 +142,17 @@ function dts_smplshare_init() {
     	<input type="radio" name="dts_smplshare_settings[<?= $setting_name; ?>]" value="dts_sharebar_style_v2" class="dts_sharebar_style_radio" <?php checked( $options[$setting_name] == 'dts_sharebar_style_v2' ); ?> />Round
     	<?php
     };
-    add_settings_field( 'dts_smplshare_settings_style_select', 'Sharebar Style', $dts_smplshare_settings_style_select, 'dts_smplshare_settings', 'dts_smplshare_settings_sharebar_style' );
+    add_settings_field( 'dts_smplshare_settings_style_select', 'Sharebar Style', $dts_smplshare_settings_style_select, 'dts_smplshare_settings_sharebar_style', 'dts_smplshare_settings_sharebar_style' );
 
 
    /**
      * Section: Share bar placement
+     * dts_smplshare_settings_placement
      */
     function dts_smplshare_settings_placement_text() {
-        echo '<p>Select placement for sharebar on posts/pages (the shortcode [dts_sharebar] will still work manually regardless)</p>';
+        echo '<p>Select automatic placement for sharebar on enabled posts/pages. (alternatively, use [dts_sharebar] in content for manual placement)</p>';
     }
-    add_settings_section( 'dts_smplshare_settings_placement', __( 'Sharebar Placement', 'dts-simple-share' ), 'dts_smplshare_settings_placement_text', 'dts_smplshare_settings' );
+    add_settings_section( 'dts_smplshare_settings_placement', __( 'Sharebar Placement', 'dts-simple-share' ), 'dts_smplshare_settings_placement_text', 'dts_smplshare_settings_placement' );
 
     $dts_smplshare_settings_show_on_top = function() {
         $options = get_option( 'dts_smplshare_settings' );
@@ -155,7 +162,7 @@ function dts_smplshare_init() {
         <input type="checkbox" name="dts_smplshare_settings[<?= $setting_name; ?>]" value="1" <?php checked( $options[$setting_name], 1); ?> />
         <?php
     };
-    add_settings_field( 'dts_smplshare_settings_show_on_top', 'Top of page/post', $dts_smplshare_settings_show_on_top, 'dts_smplshare_settings', 'dts_smplshare_settings_placement' );
+    add_settings_field( 'dts_smplshare_settings_show_on_top', 'Top of page/post', $dts_smplshare_settings_show_on_top, 'dts_smplshare_settings_placement', 'dts_smplshare_settings_placement' );
 
     $dts_smplshare_settings_show_on_bottom = function() {
         $options = get_option( 'dts_smplshare_settings' );
@@ -165,16 +172,17 @@ function dts_smplshare_init() {
         <input type="checkbox" name="dts_smplshare_settings[<?= $setting_name; ?>]" value="1" <?php checked( $options[$setting_name], 1); ?> />
         <?php
     };
-    add_settings_field( 'dts_smplshare_settings_show_on_bottom', 'Bottom of page/post', $dts_smplshare_settings_show_on_bottom, 'dts_smplshare_settings', 'dts_smplshare_settings_placement' );
+    add_settings_field( 'dts_smplshare_settings_show_on_bottom', 'Bottom of page/post', $dts_smplshare_settings_show_on_bottom, 'dts_smplshare_settings_placement', 'dts_smplshare_settings_placement' );
 
 
     /**
      * Section: Share Icons Available
+     * dts_smplshare_settings_smpl_sharers
      */
     function dts_smplshare_settings_show_option() {
         echo '<p>If you wish to show a particular share icon, check it here.</p>';
     }
-    add_settings_section( 'dts_smplshare_settings_smpl_sharers', __( 'Available Platforms (icons)', 'dts-simple-share' ), 'dts_smplshare_settings_show_option', 'dts_smplshare_settings' );
+    add_settings_section( 'dts_smplshare_settings_smpl_sharers', __( 'Available Platforms (icons)', 'dts-simple-share' ), 'dts_smplshare_settings_show_option', 'dts_smplshare_settings_smpl_sharers' );
 
     $smpl_sharers = dts_smplshare_get_data();
     $smpl_sharer_category = '';
@@ -207,17 +215,18 @@ function dts_smplshare_init() {
             <?php
         };
 
-        add_settings_field( 'dts_smplshare_' . $smpl_sharer['name'], $smpl_sharer['title'], $dts_smplshare_settings_show_option, 'dts_smplshare_settings', 'dts_smplshare_settings_smpl_sharers' );
+        add_settings_field( 'dts_smplshare_' . $smpl_sharer['name'], $smpl_sharer['title'], $dts_smplshare_settings_show_option, 'dts_smplshare_settings_smpl_sharers', 'dts_smplshare_settings_smpl_sharers' );
     endforeach;
 
 
     /**
      * Section: Default field values
+     * dts_smplshare_settings_default_values
      */
     function dts_smpleshare_settings_default_values_text() {
     	echo '<p>Enter/edit default values for share meta. Variables available: {title} {url} {excerpt}</p>';
     }
-    add_settings_section( 'dts_smplshare_settings_default_values', __( 'Default Values', 'dts-simple-share' ), 'dts_smpleshare_settings_default_values_text', 'dts_smplshare_settings' );
+    add_settings_section( 'dts_smplshare_settings_default_values', __( 'Default Values', 'dts-simple-share' ), 'dts_smpleshare_settings_default_values_text', 'dts_smplshare_settings_default_values' );
 
     $dts_smplshare_setting_email_subject = function() {
         $options = get_option( 'dts_smplshare_settings' );
@@ -227,7 +236,7 @@ function dts_smplshare_init() {
         <input type="text" name="dts_smplshare_settings[<?= $setting_name; ?>]" value="<?= $options[$setting_name]; ?>" />
         <?php
     };
-    add_settings_field( 'dts_smplshare_setting_email_subject', 'Default email share subject:', $dts_smplshare_setting_email_subject, 'dts_smplshare_settings', 'dts_smplshare_settings_default_values' );
+    add_settings_field( 'dts_smplshare_setting_email_subject', '<p>Email subject:</p>', $dts_smplshare_setting_email_subject, 'dts_smplshare_settings_default_values', 'dts_smplshare_settings_default_values' );
 
     $dts_smplshare_setting_email_desc = function() {
         $options = get_option( 'dts_smplshare_settings' );
@@ -237,7 +246,7 @@ function dts_smplshare_init() {
         <input type="text" name="dts_smplshare_settings[<?= $setting_name; ?>]" value="<?= $options[$setting_name]; ?>" />
         <?php
     };
-    add_settings_field( 'dts_smplshare_setting_email_desc', 'Default email share body:', $dts_smplshare_setting_email_desc, 'dts_smplshare_settings', 'dts_smplshare_settings_default_values' );
+    add_settings_field( 'dts_smplshare_setting_email_desc', 'Email body:', $dts_smplshare_setting_email_desc, 'dts_smplshare_settings_default_values', 'dts_smplshare_settings_default_values' );
 
     $dts_smplshare_setting_twitter_via = function() {
         $options = get_option( 'dts_smplshare_settings' );
@@ -247,7 +256,7 @@ function dts_smplshare_init() {
         <input type="text" name="dts_smplshare_settings[<?= $setting_name; ?>]" value="<?= $options[$setting_name]; ?>" />
         <?php
     };
-    add_settings_field( 'dts_smplshare_setting_twitter_via', 'Twitter Via (don\'t include "@")', $dts_smplshare_setting_twitter_via, 'dts_smplshare_settings', 'dts_smplshare_settings_default_values' );
+    add_settings_field( 'dts_smplshare_setting_twitter_via', 'Twitter @Via', $dts_smplshare_setting_twitter_via, 'dts_smplshare_settings_default_values', 'dts_smplshare_settings_default_values' );
 
     $dts_smplshare_setting_hashtags = function() {
         $options = get_option( 'dts_smplshare_settings' );
@@ -257,16 +266,17 @@ function dts_smplshare_init() {
         <input type="text" name="dts_smplshare_settings[<?= $setting_name; ?>]" value="<?= $options[$setting_name]; ?>" />
         <?php
     };
-    add_settings_field( 'dts_smplshare_setting_hashtags', 'Hashtags for Twitter (comma separated, don\'t include "#" or spaces)', $dts_smplshare_setting_hashtags, 'dts_smplshare_settings', 'dts_smplshare_settings_default_values' );
+    add_settings_field( 'dts_smplshare_setting_hashtags', 'Hashtags for Twitter (comma separated)', $dts_smplshare_setting_hashtags, 'dts_smplshare_settings_default_values', 'dts_smplshare_settings_default_values' );
 
 
     /**
      * Section: Share bar enable on post types:
+     * dts_smplshare_settings_post_types
      */
     function dts_smplshare_settings_post_types_text() {
-        echo '<p>Select which post types to <strong>enable</strong> <em>DT\'s Simple Share</em> (the shortcode [dts_sharebar] will <em>not</em> work manually if disabled on post type)</p>';
+        echo '<p>Select which post types to <strong>enable</strong> <em>DT\'s Simple Share</em><br />Shortcode <strong>[dts_sharebar]</strong> works regardless of this setting.</p>';
     }
-    add_settings_section( 'dts_smplshare_settings_post_types', __( 'Enable on Post Types', 'dts-simple-share' ), 'dts_smplshare_settings_post_types_text', 'dts_smplshare_settings' );
+    add_settings_section( 'dts_smplshare_settings_post_types', __( 'Enable on Post Types', 'dts-simple-share' ), 'dts_smplshare_settings_post_types_text', 'dts_smplshare_settings_post_types' );
 
     $post_types = get_post_types( '', 'objects' );
     foreach ( $post_types as $post_type ) :
@@ -281,7 +291,7 @@ function dts_smplshare_init() {
             <input type="checkbox" name="dts_smplshare_settings[<?= $setting_name; ?>]" value="1" <?php checked( $options[$setting_name], 1 ); ?> />
             <?php
         };
-        add_settings_field( 'dts_post_types_' . $post_type->name, $post_type->labels->name, $dts_smplshare_settings_post_type_field, 'dts_smplshare_settings', 'dts_smplshare_settings_post_types' );
+        add_settings_field( 'dts_post_types_' . $post_type->name, $post_type->labels->name, $dts_smplshare_settings_post_type_field, 'dts_smplshare_settings_post_types', 'dts_smplshare_settings_post_types' );
     endforeach;
 }
 add_action( 'admin_init', 'dts_smplshare_init' );
@@ -318,16 +328,9 @@ function dts_smplshare_shortcodes_init() {
 
 	function dts_smplshare_shortcode_sharebar( $atts, $content = '' ) {
 
-	    global $post;
-
 	    $options = get_option( 'dts_smplshare_settings' );
-	    $setting_option = 'dts_post_types_' . $post->post_type;
-
 	    if ( empty( $options ) )
 	    	return $content;
-
-	    if ( empty( $options[$setting_option] ) || $options[$setting_option] !== '1' )
-	        return $content;
 
 	    if ( empty( $options['dts_smplshare_sharebar_style'] ) )
 	    	$style = 'dts_sharebar_style_v1';
@@ -481,7 +484,15 @@ function dts_smplshare_icon_html( $smpl_sharer = array(), $preview = false ) {
  */
 function dts_smplshare_sharebar_auto( $content ) {
 
+    global $post;
+
     $options = get_option( 'dts_smplshare_settings' );
+    if ( empty( $options ) )
+        return $content;
+
+    $setting_option = 'dts_post_types_' . $post->post_type;
+    if ( empty( $options[$setting_option] ) || $options[$setting_option] !== '1' )
+        return $content;
 
     if ( !empty( $options['dts_smplshare_placement_top'] ) && $options['dts_smplshare_placement_top'] === '1' ) {
         $content = do_shortcode( '[dts_sharebar]' ) . $content;
@@ -660,6 +671,7 @@ function dts_smplshare_get_data() {
         	$hashtags = $options['dts_smplshare_hashtags'];
 
         $hashtags = str_replace( '#', '', $hashtags );
+        $hashtags = str_replace( ' ', '', $hashtags );
 
         $title 		= str_replace( ' ', '%20', rawurlencode( $title ) );
         $subject 	= str_replace( ' ', '%20', rawurlencode( $subject ) );

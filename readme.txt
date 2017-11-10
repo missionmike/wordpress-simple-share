@@ -55,6 +55,11 @@ N/A
 
 == Changelog ==
 
+=v0.3.2=
+
+* Updated settings page styles and layout
+* Bugfixes
+
 =v0.3.1=
 
 * Fixed missing text on hover in Rectangle style

@@ -58,7 +58,7 @@ if (typeof jQuery !== "undefined") {
 
                     $.post(ajaxurl, data, function(response) {
 
-                        $("#dts_order_status").removeClass("success error");
+                        $("#dts_order_status").show().removeClass("success error");
 
                         if (response !== "error") {
                             $("#dts_order_status").html("Saved").addClass("success");

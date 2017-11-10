@@ -8,10 +8,34 @@
 	<form method="post" action="options.php"> 
 		<?php
 		    settings_fields( 'dts_smplshare_settings' );
+		    do_settings_sections( 'dts_smplshare_settings_sharebar_style' );
+	    ?>
 
-		    do_settings_sections( 'dts_smplshare_settings' );
+	    <div class="dts-clear"></div>
+	    
+	    <div class="dts-column-container">
+		    <div class="dts-column-33">
+		    <?php
+			    do_settings_sections( 'dts_smplshare_settings_post_types' );
+			    do_settings_sections( 'dts_smplshare_settings_placement' );
+			?>
+			</div>
 
-		    submit_button();
-		?>
+			<div class="dts-column-33">
+			<?php
+			    do_settings_sections( 'dts_smplshare_settings_smpl_sharers' );
+			?>
+			</div>
+
+			<div class="dts-column-33">
+			<?php
+			    do_settings_sections( 'dts_smplshare_settings_default_values' );
+			?>
+			</div>
+		</div>
+		
+		<div class="dts-clear">
+			<?php submit_button(); ?>
+		</div>
 	</form>
 </div>
