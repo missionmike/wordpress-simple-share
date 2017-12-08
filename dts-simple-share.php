@@ -5,7 +5,7 @@
    Description: Simple social media/email sharebar. Specify platforms and location, or use shortcode [dts_sharebar] wherever you want them to show up!
    Version: 0.3.2
    Author: Michael R. Dinerstein
-   Author URI: https://dtweb.design/
+   Author URI: https://www.linkedin.com/in/michaeldinerstein/
    License: GPL2
    */
    
