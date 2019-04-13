@@ -1,32 +1,39 @@
 <?php
-   /*
-   Plugin Name: DT's Simple Share
-   Plugin URI: https://dtweb.design/simple-share/
-   Description: Simple social media/email sharebar. Specify platforms and location, or use shortcode [dts_sharebar] wherever you want them to show up!
-   Version: 0.3.2
-   Author: Michael R. Dinerstein
-   Author URI: https://www.linkedin.com/in/michaeldinerstein/
-   License: GPL2
-   */
+/*
+Plugin Name: DT's Simple Share
+Plugin URI: https://dtweb.design/simple-share/
+Description: Simple social media/email sharebar. Specify platforms and location, or use shortcode [dts_sharebar] wherever you want them to show up!
+Version: 0.4
+Author: Michael R. Dinerstein
+Author URI: https://www.linkedin.com/in/michaeldinerstein/
+License: GPL2
+*/
    
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
 
 
 /**
- * Register and enqueue styles/scripts for admin
+ * Register styles/scripts for admin
  */
 function dts_smplshare_register_admin_scripts() {
+
     $version = '20171110';
 
-    wp_register_style( 'font-awesome', plugins_url( 'css/font-awesome.min.css', __FILE__ ), false, $version );
+    wp_register_style( 'font-awesome', plugins_url( 'css/font-awesome.min.css', __FILE__ ), false, $version );    
     wp_register_style( 'dts_ss_styles', plugins_url( 'css/styles.css', __FILE__ ), false, $version );
     wp_register_style( 'dts_ss_styles_admin', plugins_url( 'css/styles-admin.css', __FILE__ ), false, $version );
     wp_register_script( 'dts_ss_scripts_admin', plugins_url( 'js/scripts-admin.js', __FILE__ ), false, $version );
 }
 add_action( 'admin_init', 'dts_smplshare_register_admin_scripts' );
 
+
+
+/**
+ * Enqueue styles/scripts for admin
+ */
 function dts_smplshare_enqueue_admin_scripts() {
+
     wp_enqueue_style( 'font-awesome' );
     wp_enqueue_style( 'dts_ss_styles' );
     wp_enqueue_style( 'dts_ss_styles_admin' );
@@ -39,9 +46,10 @@ add_action( 'admin_enqueue_scripts', 'dts_smplshare_enqueue_admin_scripts' );
 
 
 /**
- * Register and enqueue styles/scripts for front-end
+ * Register styles/scripts for front-end
  */
 function dts_smplshare_register_scripts() {
+
     $version = '20171110';
 
     wp_register_style( 'font-awesome', plugins_url( 'css/font-awesome.min.css', __FILE__ ), false, $version );
@@ -50,7 +58,13 @@ function dts_smplshare_register_scripts() {
 }
 add_action( 'init', 'dts_smplshare_register_scripts' );
 
+
+
+/**
+ * Enqueue styles/scripts for front-end
+ */
 function dts_smplshare_enqueue_scripts() {
+
     wp_enqueue_style( 'font-awesome' );
     wp_enqueue_style( 'dts_ss_styles' );
     wp_enqueue_script( 'jquery' );
@@ -65,10 +79,12 @@ add_action( 'wp_enqueue_scripts', 'dts_smplshare_enqueue_scripts' );
  * Add 'Settings' Link
  */
 function dts_smplshare_action_links( $actions, $plugin_file ) {
+
     static $plugin;
 
     if ( !isset( $plugin ) )
         $plugin = plugin_basename( __FILE__ );
+
     if ( $plugin === $plugin_file ) :
 
         $settings = array(
@@ -88,6 +104,7 @@ add_filter( 'plugin_action_links', 'dts_smplshare_action_links', 10, 5 );
  * Add options on plugin activation
  */
 function dts_smplshare_activate() {
+
     add_option( 'dts_smplshare_settings' );
 }
 register_activation_hook( __FILE__, 'dts_smplshare_activate' );
@@ -98,6 +115,7 @@ register_activation_hook( __FILE__, 'dts_smplshare_activate' );
  * Remove plugin-specific options on plugin deactivation
  */
 function dts_smplshare_remove() {
+
     delete_option( 'dts_smplshare_settings' );
 }
 register_deactivation_hook( __FILE__, 'dts_smplshare_remove' );
@@ -145,7 +163,7 @@ function dts_smplshare_init() {
     add_settings_field( 'dts_smplshare_settings_style_select', 'Sharebar Style', $dts_smplshare_settings_style_select, 'dts_smplshare_settings_sharebar_style', 'dts_smplshare_settings_sharebar_style' );
 
 
-   /**
+    /**
      * Section: Share bar placement
      * dts_smplshare_settings_placement
      */
@@ -186,27 +204,38 @@ function dts_smplshare_init() {
 
     $smpl_sharers = dts_smplshare_get_data();
     $smpl_sharer_category = '';
+
     foreach( $smpl_sharers as $smpl_sharer ) :
 
         if ( is_string( $smpl_sharer ) ) :
+
             $smpl_sharer_category = $smpl_sharer;
             continue;
+        
         endif;
 
+
         $dts_smplshare_settings_show_option = function() use ( $smpl_sharer, $smpl_sharer_category ) {
-            $options = get_option( 'dts_smplshare_settings' );
+        
+            $options = get_option( 'dts_smplshare_settings' );        
             $setting_name = 'dts_smplshare_' . $smpl_sharer['name'];
             
             if ( empty( $options ) ) :
+
                 $options = array();
                 $options[$setting_name] = '1';
+
             endif;
 
             if ( isset( $options[$setting_name] ) ) :
+
                 $dts_class = $options[$setting_name] === '1' ? 'checked' : 'unchecked';
+
             else :
+
                 $dts_class = 'unchecked';
                 $options[$setting_name] = false;
+
             endif;
 
             ?>
@@ -279,7 +308,9 @@ function dts_smplshare_init() {
     add_settings_section( 'dts_smplshare_settings_post_types', __( 'Enable on Post Types', 'dts-simple-share' ), 'dts_smplshare_settings_post_types_text', 'dts_smplshare_settings_post_types' );
 
     $post_types = get_post_types( '', 'objects' );
+
     foreach ( $post_types as $post_type ) :
+
         if ( $post_type->name === 'attachment' || $post_type->name === 'revision' || $post_type->name === 'nav_menu_item' )
             continue;
         
@@ -292,6 +323,7 @@ function dts_smplshare_init() {
             <?php
         };
         add_settings_field( 'dts_post_types_' . $post_type->name, $post_type->labels->name, $dts_smplshare_settings_post_type_field, 'dts_smplshare_settings_post_types', 'dts_smplshare_settings_post_types' );
+    
     endforeach;
 }
 add_action( 'admin_init', 'dts_smplshare_init' );
@@ -302,6 +334,7 @@ add_action( 'admin_init', 'dts_smplshare_init' );
  * Validate plugin settings on save
  */
 function dts_smplshare_settings_validate( $input ) {
+
     /* Add validations for data here. */
     return $input;
 }
@@ -312,6 +345,7 @@ function dts_smplshare_settings_validate( $input ) {
  * Add DT's Simple Share to Settings Menu
  */
 function dts_smplshare_init_menu() {
+
     function dts_smplshare_options_page() {
         include( plugin_dir_path( __FILE__ ) . 'dts-simple-share-settings.php' );
     }
@@ -328,7 +362,8 @@ function dts_smplshare_shortcodes_init() {
 
 	function dts_smplshare_shortcode_sharebar( $atts, $content = '' ) {
 
-	    $options = get_option( 'dts_smplshare_settings' );
+        $options = get_option( 'dts_smplshare_settings' );
+        
 	    if ( empty( $options ) )
 	    	return $content;
 
@@ -386,7 +421,8 @@ function dts_smplshare_shortcodes_init() {
 
         endif;
 
-	    $sharebar .= '</div>';
+        $sharebar .= '</div>';
+        
 	    return $sharebar;
 	}
 	add_shortcode('dts_sharebar', 'dts_smplshare_shortcode_sharebar');
@@ -401,6 +437,7 @@ add_action( 'init', 'dts_smplshare_shortcodes_init' );
 function dts_smplshare_shortcode_sharebar_preview( $atts, $content = '' ) {
 
     $options = get_option( 'dts_smplshare_settings' );
+
     if ( empty( $options ) )
     	return $content;
 
@@ -440,6 +477,7 @@ function dts_smplshare_shortcode_sharebar_preview( $atts, $content = '' ) {
 
     $sharebar .= '</ul>';
     $sharebar .= '</div>';
+
     return $sharebar;		
 }
 
@@ -462,17 +500,21 @@ function dts_smplshare_icon_html( $smpl_sharer = array(), $preview = false ) {
     $html = '';
 
     if ( $preview === false ) :
+
         $html .= '<a class="dts_smplshare dts_smplshare_sharelink" href="' . $smpl_sharer['url'] . '" target="_blank" title="' . $smpl_sharer['action'] . '" data-name="' . $smpl_sharer['name'] . '">';
         $html .=    '<span class="dts_smplshare_icon_container ' . $smpl_sharer['name'] . '" title="' . $smpl_sharer['action'] . '"></span>';
         $html .=    '<span class="dts_smplshare_icon_desc_container ' . $smpl_sharer['name'] . '" title="' . $smpl_sharer['action'] . '">' . $short . '</span>';
         $html .= '</a>';
+    
     else :
+
         $html .= '<li class="sortable" data-name="' . $smpl_sharer['name'] . '">';
         $html .= '<a class="dts_smplshare" data-name="' . $smpl_sharer['name'] . '" href="#" title="' . $smpl_sharer['action'] . '">';
         $html .=    '<span class="dts_smplshare_icon_container ' . $smpl_sharer['name'] . '" title="' . $smpl_sharer['action'] . '"></span>';
         $html .=    '<span class="dts_smplshare_icon_desc_container ' . $smpl_sharer['name'] . '" title="' . $smpl_sharer['action'] . '">' . $short . '</span>';
         $html .= '</a>';
         $html .= '</li>';
+
     endif;
 
     return $html;
@@ -487,20 +529,20 @@ function dts_smplshare_sharebar_auto( $content ) {
     global $post;
 
     $options = get_option( 'dts_smplshare_settings' );
+
     if ( empty( $options ) )
         return $content;
 
     $setting_option = 'dts_post_types_' . $post->post_type;
+
     if ( empty( $options[$setting_option] ) || $options[$setting_option] !== '1' )
         return $content;
 
-    if ( !empty( $options['dts_smplshare_placement_top'] ) && $options['dts_smplshare_placement_top'] === '1' ) {
+    if ( !empty( $options['dts_smplshare_placement_top'] ) && $options['dts_smplshare_placement_top'] === '1' )
         $content = do_shortcode( '[dts_sharebar]' ) . $content;
-    }
 
-    if ( !empty( $options['dts_smplshare_placement_bottom'] ) && $options['dts_smplshare_placement_bottom'] === '1' ) {
+    if ( !empty( $options['dts_smplshare_placement_bottom'] ) && $options['dts_smplshare_placement_bottom'] === '1' )
         $content .= do_shortcode( '[dts_sharebar]' );
-    }
 
     return $content;
 }
@@ -518,6 +560,7 @@ function dts_smplshare_setorder() {
         $data = isset( $_POST['data'] ) ? $_POST['data'] : '0';
 
         if ( strlen( $data ) > 0 ) :
+
             $data = stripcslashes( $data );
             $data = json_decode( $data );
 
@@ -637,6 +680,7 @@ function dts_smplshare_get_data() {
 
 
         $subject = '';
+
     	if ( ! empty( $options['dts_smplshare_email_subject'] ) )
         	$subject = $options['dts_smplshare_email_subject'];
 
@@ -649,6 +693,7 @@ function dts_smplshare_get_data() {
 
 
         $desc = '';
+
         if ( ! empty( $options['dts_smplshare_email_desc'] ) )
         	$desc = $options['dts_smplshare_email_desc'];
 
@@ -667,6 +712,7 @@ function dts_smplshare_get_data() {
         $via = str_replace( '@', '', $via );
 
         $hashtags = '';
+
         if ( !empty( $options['dts_smplshare_hashtags'] ) )
         	$hashtags = $options['dts_smplshare_hashtags'];
 
@@ -705,6 +751,7 @@ function dts_smplshare_get_data() {
 
 
 function dts_smplshare_html_to_nl( $content = '' ) {
+    
 	$breaks = array( "<br />", "<br>", "<br/>", "<br />", "&lt;br /&gt;", "&lt;br/&gt;", "&lt;br&gt;" );
 	$content = str_ireplace( $breaks, "\r\n", $content );
 	return $content;
