@@ -29,7 +29,6 @@ Currently, the following platforms and share options are supported:
 
 * Facebook
 * Twitter
-* Google+
 * LinkedIn
 * Reddit
 * Tumblr
