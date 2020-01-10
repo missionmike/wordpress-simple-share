@@ -28,7 +28,7 @@ a.dts_smplshare.dts_smplshare_sharelink {
 div.dts_smplshare_container span.dts_smplshare_icon_container {
     position: relative;
     display: inline-block;
-    font-family: 'FontAwesome';
+    font-family: 'Font Awesome 5 Brands';
     width: 40px;
     height: 32px;
     line-height: 32px;
@@ -47,13 +47,13 @@ div.dts_smplshare_container span.dts_smplshare_icon_container::before {
     width: 100%;
     height: 100%;
     color: white;
-    font-family: 'FontAwesome';
+    font-family: 'Font Awesome 5 Brands';
 }
 
 div.dts_smplshare_container span.dts_smplshare_icon_desc_container {
     position: absolute;
     display: block;
-    bottom: 0;
+    top: 0;
     left: 0;
     width: 100%;
     overflow: hidden;
@@ -61,7 +61,7 @@ div.dts_smplshare_container span.dts_smplshare_icon_desc_container {
     text-align: center;
     font-size: 10px;
     line-height: 10px;
-    height: 16px;
+    height: 15px;
     padding-top: 3px;
     font-weight: normal;
     font-family: inherit;
@@ -73,8 +73,8 @@ div.dts_smplshare_container span.dts_smplshare_icon_desc_container {
 }
 
 .dts_sharebar_style_v1 .dts_smplshare:hover span.dts_smplshare_icon_desc_container {
-    -webkit-transform: translateY(16px);
-    transform: translateY(16px);
+    -webkit-transform: translateY(-15px);
+    transform: translateY(-15px);
     opacity: 1;
 }
 
@@ -93,6 +93,13 @@ div.dts_smplshare_container.dts_sharebar_style_v2 span.dts_smplshare_icon_contai
     transform: rotate(360deg);
 }
 
+/**
+ * @since 0.1
+ */
+
+/**
+ * Facebook
+ */
 div.dts_smplshare_container span.dts_smplshare_icon_container.facebook {
     background-color: #3b5998;
 }
@@ -102,21 +109,12 @@ div.dts_smplshare_container span.dts_smplshare_icon_desc_container.facebook {
 }
 
 div.dts_smplshare_container span.dts_smplshare_icon_container.facebook::before {
-    content: '\f09a';
+    content: '\f39e';
 }
 
-div.dts_smplshare_container span.dts_smplshare_icon_container.googleplus {
-    background-color: #df4a32;
-}
-
-div.dts_smplshare_container span.dts_smplshare_icon_desc_container.googleplus {
-    background-color: rgba(203, 32, 39, 0.5);
-}
-
-div.dts_smplshare_container span.dts_smplshare_icon_container.googleplus::before {
-    content: '\f0d5';
-}
-
+/**
+ * Twitter
+ */
 div.dts_smplshare_container span.dts_smplshare_icon_container.twitter {
     background-color: #00b6f1;
 }
@@ -129,6 +127,9 @@ div.dts_smplshare_container span.dts_smplshare_icon_container.twitter::before {
     content: '\f099';
 }
 
+/**
+ * LinkedIn
+ */
 div.dts_smplshare_container span.dts_smplshare_icon_container.linkedin {
     background-color: #007bb6;
 }
@@ -141,6 +142,9 @@ div.dts_smplshare_container span.dts_smplshare_icon_container.linkedin::before {
     content: '\f0e1';
 }
 
+/**
+ * Tumblr
+ */
 div.dts_smplshare_container span.dts_smplshare_icon_container.tumblr {
     background-color: #35465d;
 }
@@ -153,6 +157,9 @@ div.dts_smplshare_container span.dts_smplshare_icon_container.tumblr::before {
     content: '\f173';
 }
 
+/**
+ * StumbleUpon
+ */
 div.dts_smplshare_container span.dts_smplshare_icon_container.stumbleupon {
     background-color: #eb4924;
 }
@@ -165,6 +172,9 @@ div.dts_smplshare_container span.dts_smplshare_icon_container.stumbleupon::befor
     content: '\f1a4';
 }
 
+/**
+ * Reddit
+ */
 div.dts_smplshare_container span.dts_smplshare_icon_container.reddit {
     background-color: #ff5700;
 }
@@ -177,6 +187,9 @@ div.dts_smplshare_container span.dts_smplshare_icon_container.reddit::before {
     content: '\f281';
 }
 
+/**
+ * Email
+ */
 div.dts_smplshare_container span.dts_smplshare_icon_container.email {
     background-color: #333333;
 }
@@ -186,7 +199,25 @@ div.dts_smplshare_container span.dts_smplshare_icon_desc_container.email {
 }
 
 div.dts_smplshare_container span.dts_smplshare_icon_container.email::before {
-    content: '\f003';
+    content: '📧';
+}
+
+/**
+ * @since 0.5
+ */
+/**
+ * Pinterest
+ */
+div.dts_smplshare_container span.dts_smplshare_icon_container.pinterest {
+    background-color: #e60023;
+}
+
+div.dts_smplshare_container span.dts_smplshare_icon_desc_container.pinterest {
+	background-color: rgba(230, 0, 35, 0.5);
+}
+
+div.dts_smplshare_container span.dts_smplshare_icon_container.pinterest::before {
+    content: '\f231';
 }
 
 a.dts_smplshare {

@@ -33,26 +33,32 @@ Currently, the following platforms and share options are supported:
 * Reddit
 * Tumblr
 * StumbleUpon
-* Email.
+* Email
+* Pinterest
 
 ## In the Works
 
-The following platforms are planned to be included:
-
-* Pinterest
-* Delicious
-
-...and more if requested.
-
+If you'd like to see another platform included, please let me know!
 
 == Installation ==
 Download zip, install, activate!
-Check settings to reveal post types and sharebar positioning (all disabled by default)
+Check settings to reveal post types and sharebar positioning. Settings need to be saved after activation in order for the sharebar to appear on posts/pages.
 
 == Frequently Asked Questions ==
 N/A
 
 == Changelog ==
+
+=v0.5=
+
+* Google AMP support
+* Reminder notification to save settings after activation
+* Added Pinterest
+* Code refactoring
+
+=v0.4.4=
+
+* Code cleanup and bugfixes
 
 =v0.3.2=
 

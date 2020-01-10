@@ -1,5 +1,11 @@
 <?php
-    defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
+/**
+ * @since 0.1
+ * 
+ */
+
+defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
+
 ?>
 
 <div class="wrap">
@@ -24,6 +30,7 @@
 			<div class="dts-column-33">
 			<?php
 			    do_settings_sections( 'dts_smplshare_settings_smpl_sharers' );
+			    do_settings_sections( 'dts_smplshare_settings_support_amp' );
 			?>
 			</div>
 
