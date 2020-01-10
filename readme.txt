@@ -27,7 +27,7 @@ Other SEO plugin support for post titles can be added upon request.
 
 ## AMP Support
 
-In Settings, AMP-specific [amp-social-share](https://amp.dev/documentation/components/amp-social-share/) elements available to be used in lieu of traditional HTML for social media sharing icons. There is out-of-the-box AMP page detection included for the (AMP)[https://wordpress.org/plugins/amp/] plugin, and the [AMP for WP - Accelerated Mobile Pages](https://wordpress.org/plugins/accelerated-mobile-pages/) plugin. 
+In Settings, AMP-specific [amp-social-share](https://amp.dev/documentation/components/amp-social-share/) elements available to be used in lieu of traditional HTML for social media sharing icons. There is out-of-the-box AMP page detection included for the [AMP](https://wordpress.org/plugins/amp/) plugin, and the [AMP for WP - Accelerated Mobile Pages](https://wordpress.org/plugins/accelerated-mobile-pages/) plugin. 
 
 If neither of these plugins are in use on your site, you can enable the setting to detect if the page's URL ends in /amp/ - which is not a foolproof way to detect AMP, but can be used if other options are not available.
 
