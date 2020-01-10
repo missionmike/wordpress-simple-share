@@ -42,7 +42,6 @@ Currently, the following platforms and share options are supported:
 * LinkedIn
 * Reddit
 * Tumblr
-* StumbleUpon
 * Email
 * Pinterest
 
@@ -52,6 +51,10 @@ If you'd like to see another platform included, please let me know!
 
 Please kindly report any issues or conflicts to the author by [opening a support request](https://wordpress.org/support/plugin/dts-simple-share/) or emailing the author.
 
+## Special Thanks
+
+Thanks to the contributors of the [social-share-urls GitHub repo](https://github.com/bradvin/social-share-urls), which helped make this plugin development possible.
+
 == Installation ==
 Download zip, install, activate!
 Check settings to reveal post types and sharebar positioning. Settings need to be saved after activation in order for the sharebar to appear on posts/pages.
@@ -60,6 +63,10 @@ Check settings to reveal post types and sharebar positioning. Settings need to b
 N/A
 
 == Changelog ==
+
+=v0.5.2=
+
+* Removed StumbleUpon - the share URL no longer works since they've rebranded to Mix
 
 =v0.5.1=
 

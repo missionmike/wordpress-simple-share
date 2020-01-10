@@ -50,12 +50,17 @@ function dts_smplshare_get_data() {
 			'short' => 'Post',
 			'amp'	=> true,
 		),
+		/**
+		 * @since 0.5.2
+		 * Removed StumbleUpon
+		 *
 		'stumbleupon' => array(
 			'name'	=> 'stumbleupon',
 			'url'	 => 'http://www.stumbleupon.com/submit?url={url}&title={title}',
 			'title'   => 'StumbleUpon',
 			'action'  => 'Share on StumbleUpon'
 		),
+		 */
 		'reddit'	=> array(
 			'name'  => 'reddit',
 			'url'   => 'https://reddit.com/submit?url={url}&title={title}',
