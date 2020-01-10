@@ -32,11 +32,7 @@ register_deactivation_hook( __FILE__, 'dts_smplshare_remove' );
  */
 function dts_smplshare_action_links( $actions, $plugin_file ) {
 
-	static $plugin;
-
-	$plugin = isset( $plugin ) ? $plugin : plugin_basename( __FILE__ );
-
-	if ( $plugin === $plugin_file ) {
+	if ( $plugin_file === 'dts-simple-share/dts-simple-share.php' ) {
 
 		$settings = array(
 			'settings' => '<a href="' . esc_url( get_admin_url( null, 'options-general.php?page=dts-simple-share' ) ) . '">' . __('Settings', 'General') . '</a>'

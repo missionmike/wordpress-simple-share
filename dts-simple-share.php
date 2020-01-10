@@ -3,7 +3,7 @@
 Plugin Name: DT's Simple Share
 Plugin URI: https://dtweb.design/simple-share/
 Description: Simple social media and email sharebar. Specify platforms and location, or use shortcode [dts_sharebar] wherever you want them to show up!
-Version: 0.5
+Version: 0.5.1
 Author: Michael R. Dinerstein
 Author URI: https://www.linkedin.com/in/michaeldinerstein/
 License: GPL2

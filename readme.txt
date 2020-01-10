@@ -49,6 +49,10 @@ N/A
 
 == Changelog ==
 
+=v0.5.1=
+
+* Fixed missing Settings link
+
 =v0.5=
 
 * Google AMP support
