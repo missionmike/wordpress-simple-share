@@ -1,6 +1,8 @@
 # DT's Simple Share
 
-Simplify page/post sharing with an easily added sharebar for users. View on wordpress.org: https://wordpress.org/plugins/dts-simple-share/
+Simplify page/post sharing with an easily added sharebar for users. 
+
+View on wordpress.org: https://wordpress.org/plugins/dts-simple-share/
 
 ## Description
 
