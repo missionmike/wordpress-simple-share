@@ -1,7 +1,7 @@
 === Simple Share ===
 Contributors: missionmike
 Tags: facebook, google plus, twitter, email, share, linkedin, reddit, tumblr, stumbleupon, sharing, social media
-Donate link: https://dtweb.design/simple-share/
+Donate link: https://www.missionmike.dev
 Requires at least: 2.8
 Tested up to: 5.8
 License: GPLv2 or later
